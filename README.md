@@ -27,4 +27,4 @@ Using R programming, I analyzed **10 weeks of average temperature data** for my 
 
 ## 📂 Files Included
 - `Week1_City_Temp_Analysis.Rmd`.
-–  Main R Markdown file with code and comments.
+-  Main R Markdown file with code and comments.
