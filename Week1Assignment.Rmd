@@ -1,0 +1,170 @@
+---
+title: "Assignment for Week 1"
+author: "Anshu Kumar"
+date: "2025-07-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+--------------------|
+ASSIGNMENT WEEK 1  -|
+--------------------|
+Topic : “City Temperature Trends: Analyzing Weekly Climate Patterns Using R”  -|
+-------------------------------------------------------------------------------|
+
+
+Introduction  -|
+---------------|
+Assignment for the week 1 while being a part of the Data Science internship team at Zeno Talent under the guidance of Aishwarya. The assignment, titled "City Temperature Trends: Analyzing Weekly Climate Patterns Using R" tests basics concepts of R programming as using—vectors, data types, variables, and operators—to simulate and analyze 10 weeks of average temperature data for my city. The assignment includes calculations, visualizations,and a simulated heatwave, with the output shared via LinkedIn post and GitHub. I used visualcrossing website to generate a daily weather csv dataset for my city "Patna" as well as for another city "Muzaffarpur" for comparison purpose. The dataset generated is from 29-April-2025 to 11-July-20525.
+
+
+Tasks  -|
+--------|
+Create a numeric vector temp_data with 10 average weekly temperatures (°C)  -|
+-----------------------------------------------------------------------------|
+```{r pat_temp}
+pat_temp <- c(28.18000, 31.14286, 33.20000, 30.27143, 32.20000, 31.72857, 35.55714, 31.18571,
+              30.71429, 30.27143)
+```
+In the code above I have created a vector named pat_temp which stands for the temperature of my city Patna. It stores the average weekly temperatures(°C) for 10 weeks.
+
+```{r pat_temp}
+print(pat_temp)
+```
+This code is used to print the vector pat_temp.
+
+
+Create a character vector weeks for Week 1 to Week 10  -|
+--------------------------------------------------------|
+
+```{r pat_temp}
+weeks <- paste("Week", 1:10)
+```
+In the above code I have used the paste function to combine character week while using sequencing to add 1 to 10 with the week.
+
+```{r pat_temp}
+names(pat_temp) <- weeks
+```
+In code used I am using the names function as per the task instruction to assign names to every week in the pat_temp vector.
+
+```{r pat_temp}
+print("The updated vector is:")
+print(pat_temp)
+```
+This code is used to print the vector pat_temp after assigning the names for the weeks.
+
+
+Perform the calculations: Maximum, Minimum, and Average(mean) temperature  -|
+----------------------------------------------------------------------------|
+
+```{r pat_temp}
+max_temp_pat <- max(pat_temp)
+print(paste("Maximum Temperature in Patna in 10 weeks is:", max_temp_pat, "°C"))
+```
+The code utilizes the max vector function to check for the maximum value in the vector, it then uses the print statement to print the maximum temperature in the city in 10 weeks.
+
+
+```{r pat_temp}
+min_temp_pat <- min(pat_temp)
+print(paste("Minimum Temperature in Patna in 10 weeks is:", min_temp_pat, "°C"))
+```
+The code utilizes the min vector function to check for the minimum value in the vector, it then uses the print statement to print the minimum temperature in the city in 10 weeks.
+
+```{r pat_temp}
+avg_temp_pat <- mean(pat_temp)
+print(paste("Average Temperature in Patna in 10 weeks is:", avg_temp_pat, "°C"))
+```
+The code utilizes the mean vector function to check for the mean value in the vector, it then uses the print statement to print the average temperature in the city in 10 weeks.
+
+
+Perform the calculations: Count of weeks where temperature was above 30°C  -|
+----------------------------------------------------------------------------|
+
+```{r pat_temp}
+pat_temp_gt <- sum(pat_temp>30)
+print(paste("Weeks with temperature> 30°C in 10 weeks is:", pat_temp_gt))
+```
+In the code I used the relational operator to check for the temperature which are grater than 30°C. It returns logical values as True or False. The numerical value for True is 1 and for False is 0. I have used sum function to calculate the number of weeks with temperature above 30°C. In the end using the print statement to print the output.
+
+
+Perform the calculations: Extract weeks where temperature was between 25°C and 35°C  -|
+--------------------------------------------------------------------------------------|
+
+```{r pat_temp}
+pat_temp_range <- pat_temp[pat_temp >= 25 & pat_temp <= 35]
+print("Weeks where the temperature is between 25°C and 35°C are:")
+print(pat_temp_range)
+```
+The code use the relational operator for logical indexing which checks for the temperature to be in between 25°C and 35°C and stores result in a new variable. It then prints output.
+
+
+Simulate a heatwave: Add 2°C to all temperatures and store in heatwave_temp  -|
+------------------------------------------------------------------------------|
+
+```{r pat_temp}
+pat_heatwave_temp <- pat_temp + 2
+print("The heatwave temperatures are:")
+print(pat_heatwave_temp)
+```
+As per the instructions I have added 2°C to all temperatures and store in heatwave_temp using the arithmetic operator. It then prints the output.
+
+
+Display temperature trends using the plot() function  -|
+-------------------------------------------------------|
+
+```{r pat_temp}
+plot(pat_temp, type = "o", col = "black", xlab = "Weeks", ylab = "Average Temperature(°C)",
+     main = "Patna 10 Weeks Temperature Trends")
+```
+The code is used to plot the line chart to look for the temperature trends in Patna city.
+
+
+Comparing two cities  -|
+-----------------------|
+
+```{r muz_temp}
+muz_temp <- c(28.24000, 31.15714, 33.07143, 30.11429, 32.14286, 31.74286, 35.52857, 31.21429,
+              30.72857, 30.34286)
+```
+In the code above I have created a vector named muz_temp which stands for the temperature of city Muzaffarpur. It stores the average weekly temperatures(°C) for 10 weeks. I will use it to compare with my city.
+
+```{r muz_temp}
+print(muz_temp)
+```
+This code is used to print the vector muz_temp.
+
+```{r muz_temp}
+names(muz_temp) <- weeks
+```
+Using the names function to assign names to every week in the muz_temp vector.
+
+```{r muz_temp}
+print("The updated vector is:")
+print(muz_temp)
+```
+This code is used to print the vector muz_temp after assigning the week names.
+
+```{r muz_temp}
+plot(muz_temp, type = "o", col = "brown", xlab = "Weeks", ylab = "Average Temperature(°C)",
+     main = "Patna 10 Weeks Temperature Trends")
+```
+The code is used to plot the line chart to look for the temperature trends in Muzaffarpur city.
+
+
+Plot both cities
+
+```{r pat_temp}
+plot(pat_temp, type = "o", col = "blue", xlab = "Weeks", ylab = "Average Temperature(°C)",
+     main = "Patna vs Muzaffarpur 10 Weeks Temperature Trends",
+     ylim = range(c(pat_temp, muz_temp)))
+lines(muz_temp, type = "o", col = "red")
+```
+The code is used to plot the line chart to compare the temperature trends in Patna city vs Muzaffarpur city.
+
+
+Conclusion  -|
+-------------|
+The assignment for week 1 which made me explore the weekly temperature trends in my city for 10-weeks period using real-world daily weather data. I have used almost all the basics of R programming which includes the vectors creation, using operators, vector functions, visualizations. 
